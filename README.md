@@ -120,6 +120,10 @@ fetchtodo().then(todo =>{
 
 
 ```
+
+The implementation of the getTodo function has not changed at all. Still the Promise is created and depending on the value of the error variable it is resolved or rejected like seen before.
+What has changed is the way the getTodo function is called. A new function fetchTodo is being implemented and the async keyword is used to indicate that this function is executing asynchronous code based on a Promise.
+Inside of fetchTodo we’re calling the getTodo method by using the keyword await. This indicates that getTodo is returning a Promise and we have to wait for the Promise to be resolved (or rejected). The result of what is being returned from the promise is stored in todo. In the next line of code the todo object is being returned. This is possible because by using the keyword await we’re making sure that the next line of code is being executed after the Promise (returned from getTodo) has been resolved.
   
   
 
