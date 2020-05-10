@@ -22,8 +22,7 @@ learning asynchronous programming
      },2000)//setTimerout wil always take a callBack*****
      console.log("i am");
    ```
-  - Because JavaScript is executed in that non-blocking way you have to take additional measures to deal with that code if you need to have the result available before further code is being executed.
-  ```
+  - Because JavaScript is executed in that non-blocking way you have to take additional measures to deal with that code if you need to have the result available before further code is being executed.  ```
   const getTodo = () => {
     setTimeout(() => {
         return { text: 'Complete Code Example' }
