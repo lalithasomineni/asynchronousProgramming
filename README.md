@@ -1,5 +1,24 @@
 # asynchronousProgramming
 learning asynchronous programming
+"asynchonous programming runs only when the callstack is empty.
+## Callstacks
+### The call stack functions in the following way:
+
+- When a function call is encountered, it is pushed onto the call stack.
+- Any additional functions called within the original function are placed higher up onto the call stack.
+- When a function finishes executing, it is popped off the call stack and the next function on the call stack is processed.
+- refer callstack.js
+#### the output of callstacks.js:
+``` Error
+    at c (<anonymous>:9:14)
+    at b (<anonymous>:5:2)
+    at a (<anonymous>:2:2)
+    at <anonymous>:10:12 
+ ```
+ a is last because called first viceversa ,.....
+ ### Event loop
+ When the call stack is empty, it takes the first task off the event queue and processes it. The remaining tasks on the queue wait until the call stack is empty again. This cycle is called the Event Loop.
+
 
 ## where we need asynchronous programming
  - The main reason why we need asynchronous programming is to avoid blocking of i/o(provides cocurrency i.e..,multiple threading ).
@@ -22,7 +41,8 @@ learning asynchronous programming
      },2000)//setTimerout wil always take a callBack*****
      console.log("i am");
    ```
-  - Because JavaScript is executed in that non-blocking way you have to take additional measures to deal with that code if you need to have the result available before further code is being executed.  ```
+  - Because JavaScript is executed in that non-blocking way you have to take additional measures to deal with that code if you need to have the result available before further code is being executed.  
+  ```
   const getTodo = () => {
     setTimeout(() => {
         return { text: 'Complete Code Example' }
@@ -39,7 +59,7 @@ console.log(todo.text) // throws error we have not waited until the function loa
 ### callBack
 Callbacks are simple functions which are used to notify the calling instance when an asynchronous code block has been executed and the result is available.
 - using callbacks is simple ,the above code can be return as 
-```
+``` 
 function getTodo(name,callback){
      setTimeout(()=>{
      console.log("wait")
@@ -51,6 +71,7 @@ function getTodo(name,callback){
  	console.log(todo);
  })
 ```
+
 # Promises
 callbacks makes code longer,not readabe(callback hell) so to Avoid these we will go with promises.
 - Promises which is a built-in language feature of JavaScript and makes handling asynchronous code easier and more readable.
